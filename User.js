@@ -1,10 +1,9 @@
 
-import React from 'react';
 
-export default class User extends React.Component {
+export default class User {
     User(){
-        user_title=["Noob","Dominating","Mega King","Unstoppable","Wicked Sick","Monster","Godlike","Beyond Godlike"]
         lives=3
+        usertitle=''
         FirstName="Default"
         LastName="default"
         stage=1
@@ -14,7 +13,9 @@ export default class User extends React.Component {
         return this.user_title_index
     }
     setuser_title_index(user_title_index){
-         this.user_title_index=user_title_index
+        user_title_array=['Noob','Beginner','Dominating','Mega King','Unstoppable','Wicked Sick','Monster','Godlike','Beyond Godlike']
+        this.usertitle=user_title_array[user_title_index]
+        this.user_title_index=user_title_index
     }
     getLives(){
         return this.lives
@@ -24,7 +25,7 @@ export default class User extends React.Component {
     }
     
     getuser_title(){
-        return this.user_title
+        return this.usertitle
     }
     setFirstName(FirstName){
         this.FirstName=FirstName

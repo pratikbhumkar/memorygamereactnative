@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View,TextInput,TouchableOpacity } from 'react-native';
-import { Appbar,Avatar, Button,List,FlatList,FAB } from 'react-native-paper';
-import AwesomeButtonCartman from 'react-native-really-awesome-button/src/themes/cartman';
-import DraggableFlatList from 'react-native-draggable-flatlist'
+import {  Text, View,TouchableOpacity } from 'react-native';
+import { FAB } from 'react-native-paper';
 
-export default class Login extends React.Component {
+import DraggableFlatList from 'react-native-draggable-flatlist'
+// import { Appbar } from 'react-native-paper';
+export default class Answer extends React.Component {
     state = {
         arr:[],
         correctArray:[],
@@ -13,21 +13,25 @@ export default class Login extends React.Component {
         static navigationOptions={
             header:null
           }
-          renderItem = ({ item, index, move, moveEnd, isActive }) => {
+          renderItem = ({ item, move, moveEnd }) => {
             return (
               <TouchableOpacity
                 style={{ 
                   height: 100, 
-                  backgroundColor:  'orange',
+                  backgroundColor:  '#ea1c22',
                   alignItems: 'center', 
-                  justifyContent: 'center' 
+                  elevation:100,
+                  justifyContent: 'center',
+                  marginTop: 4,
+                  marginBottom: 8 
                 }}
                 onLongPress={move}
                 onPressOut={moveEnd}
               >
                 <Text style={{ 
                   fontWeight: 'bold', 
-                  color: 'white',
+                  color: '#ece000',
+                  elevation:300,
                   fontSize: 32,
                 }}>{item.label}</Text>
               </TouchableOpacity>
@@ -42,7 +46,7 @@ export default class Login extends React.Component {
             newdata= guessArray.map((d, index) => ({
               key: `item-${index}`,
               label: d,
-              backgroundColor: `orange`,
+              backgroundColor: `white`,
             }))
             this.setState({
               data:newdata,
@@ -51,11 +55,19 @@ export default class Login extends React.Component {
           }
           render() { 
             return (
-          <View style={{ flex: 1 }}>
+          <View style={{ flex: 1 ,borderStyle:'solid', backgroundColor:'#ededed',
+          borderColor:'#ededed',borderWidth:10}}>
+          {/* <Appbar style={{top:1,bottom:0,justifyContent :'center',backgroundColor:'#ea1c22'
+        ,position: 'absolute',left: 0,right: 0,bottom: 0,flexDirection: 'row',height:100,alignContent:"center"
+        ,borderBottomLeftRadius:30,borderBottomRightRadius:30}}>
+          <Text style={{color:"#ece000",textAlign:'center',fontFamily: 'monospace',fontSize: 20,fontWeight: 
+          'bold'}}
+          >Answer</Text>
+        </Appbar> */}
           <DraggableFlatList
             data={this.state.data}
             renderItem={this.renderItem}
-            keyExtractor={(item, index) => `draggable-item-${item.key}`}
+            keyExtractor={(item) => `draggable-item-${item.key}`}
             scrollPercent={5}
             onMoveEnd={({ data }) => this.setState({ data })}
           />
@@ -64,7 +76,6 @@ export default class Login extends React.Component {
               icon={this.state.open ? 'close' : 'add'}
               actions={[
                 { icon: 'check', label: 'Submit', onPress: () =>{ 
-                  console.log('here')
                   answerOutput=[]
                   for (item  in this.state.data) {
                     answerOutput=answerOutput.concat(this.state.data[item].label)
@@ -103,7 +114,6 @@ export default class Login extends React.Component {
                   }
                   
                 }},
-                { icon: 'close', label: 'Reset', onPress: () => this.props.navigation.navigate('GamePlay') }
               ]}
               onStateChange={({ open }) => this.setState({ open })}
               onPress={() => {
@@ -115,6 +125,3 @@ export default class Login extends React.Component {
         </View>);
           }
         }
-
-       
-         

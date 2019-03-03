@@ -8,17 +8,24 @@
   },
   "dependencies": {
     "array-shuffle": "^1.0.1",
+    "exp": "^57.2.1",
     "expo": "^32.0.0",
     "random-words": "^1.1.0",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
-    "react-native-background-timer": "^2.1.1",
     "react-native-draggable-flatlist": "^1.1.7",
+    "react-native-elements": "^1.1.0",
     "react-native-fs": "^2.13.3",
     "react-native-paper": "^2.11.1",
     "react-native-really-awesome-button": "^1.3.1",
+    "react-native-video": "^4.4.0",
     "react-native-view-shot": "^2.5.0",
     "react-navigation": "^3.3.0"
+  },
+  "rnpm": {
+    "assets": [
+      "./assets/fonts"
+    ]
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0"

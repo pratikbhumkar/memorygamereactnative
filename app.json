@@ -1,9 +1,14 @@
 {
   "expo": {
-    "name": "memorygame",
+    "name": "MemoryGame",
     "slug": "memorygamereact",
     "privacy": "public",
     "sdkVersion": "32.0.0",
+    "android":{
+        "package":"com.mygame.memorygame",
+        "permissions":[],
+        "icon":"./brain power.png"
+    },
     "platforms": [
       "ios",
       "android"
@@ -25,5 +30,6 @@
     "ios": {
       "supportsTablet": true
     }
+    
   }
 }

@@ -29,7 +29,6 @@ GameOver:GameOver
   },
   {
     initialRouteName: 'login',
-  }
-);
-const TopLevelNavig = createAppContainer(AppStackNavigator);
+  });
 
+const TopLevelNavig = createAppContainer(AppStackNavigator);
